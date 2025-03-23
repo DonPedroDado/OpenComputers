@@ -1,13 +1,15 @@
-local AI = require("AI")
+local Gemini = require("AI")
+local io = require("io")
 
-local ai = AI.new()
+local api_key = io.read() -- Replace with your actual API key
+local gemini = Gemini.new(api_key)
 
-print("Ask Gemma something: ")
+print("Ask Gemini something: ")
 local query = io.read()
 
-local response, err = ai:query(query)
+local response, err = gemini:query(query)
 if response then
-    print("Gemma's Answer: " .. response)
+    print("Gemini's Answer: " .. response)
 else
     print("Error: " .. err)
 end
